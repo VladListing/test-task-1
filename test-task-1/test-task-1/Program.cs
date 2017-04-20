@@ -12,8 +12,8 @@ namespace test_task_1
         {
 
 
-
-
+            Console.WriteLine("Hello Alexey");
+            Console.ReadLine();
 
 
         }
