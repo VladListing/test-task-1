@@ -10,7 +10,7 @@ namespace test_task_1
     {
         static void Main(string[] args)
         {
-
+            // тестовое задание 1
 
             Console.WriteLine("Hello Alexey");
             Console.ReadLine();
