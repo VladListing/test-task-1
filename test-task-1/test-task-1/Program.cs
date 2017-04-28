@@ -55,7 +55,7 @@ namespace test_task_1
     class Program
     {
         public const
-        string path = @"D:\\_LISTING_\B-files\treding_1.dat";  //путь и имя бинарного файла со структурами
+        string path = @"D:\\_LISTING_\B-files\treding___.dat";  //путь и имя бинарного файла со структурами
         static void Main(string[] args)
         {
             // тестовое задание 1:
@@ -68,7 +68,7 @@ namespace test_task_1
 
             int schetchik = 0;//счетчик количеста проходов цикла
             Header[] header = new Header[1]; // создание экземпяра структуры "TradeRecord" на 1-ну строку
-            TradeRecord[] trade = new TradeRecord[7]; // создание экземпяра структуры "TradeRecord" на 7-мь строк
+            TradeRecord[] trade = new TradeRecord[100]; // создание экземпяра структуры "TradeRecord" на 7-мь строк
             
            try
           {
@@ -112,7 +112,7 @@ namespace test_task_1
 
                 //-----------------------------  через цыклы выгружаем значения полей структур в файл  *.CSV  -------------------------------
 
-                using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"D:\\_LISTING_\B-files\treding_1.CSV"))
+                using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"D:\\_LISTING_\B-files\treding___.CSV"))
                 {
 
                     foreach (Header t in header)
