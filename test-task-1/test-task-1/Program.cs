@@ -95,17 +95,6 @@ namespace test_task_1
                 using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"D:\\_LISTING_\B-files\StructTrade_Line_110.CSV"))
                 {
 
-                    //    foreach (Header t in header)
-                    //    {
-                    //        file.Write(t.version);
-                    //        file.Write(";");
-                    //        file.Write(t.type);
-                    //        file.Write(";");
-
-                    //        file.WriteLine(";");
-                    //    }
-
-
                     foreach (TradeRecord t in trade)
                     {
                         file.Write(t.id);
@@ -118,8 +107,12 @@ namespace test_task_1
 
                         file.WriteLine(";");
 
+                        schetchik = schetchik + 1;
                         //Console.WriteLine("id: {0}      счет: {1}     уровень: {2}       комментарий: {3} ", t.id, t.account, t.volume, t.comment);
                     }
+
+                    Console.WriteLine("Счетчик строк структуры trade конвертированных из бинарного формата в фрмат CSV : {0}  ", schetchik);
+                    schetchik = 0;
 
                 }
                 #endregion
