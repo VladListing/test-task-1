@@ -28,7 +28,7 @@ namespace test_task_1  //конвертация бинарных файлов в
                 List<TradeRecord> Collektion = readerFromBinaryFiles.fromBinaryFile(path_dat);
 
 
-                //класс 'ReadToCSV' получает коллекцию структурированных данных  и генерирует из нее конечный файл *.CSV 
+                //класс 'ReadToCSV' получает коллекцию структурированных данных и генерирует из нее конечный файл *.CSV 
                 ReadToCSV readToCSV = new ReadToCSV(Collektion,path_CSV);//создаем экземпляр классауктур
                 readToCSV.toCSV(Collektion, path_CSV);//вызов метода класса 
 
