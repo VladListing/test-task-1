@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace test_task_1
 {
-    public class ReadToCSV
+    public class ReadToCSV: IReadToCSV
     {
 
         //коструктоp пользовательский
@@ -15,6 +15,11 @@ namespace test_task_1
         {
             string patch_CSV = patch_CSV_;
             List<TradeRecord> trade = trade_;
+        }
+
+        public void toCSV()
+        {
+            
         }
         #endregion
 

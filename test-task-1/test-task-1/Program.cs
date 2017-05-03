@@ -24,13 +24,19 @@ namespace test_task_1  //конвертация бинарных файлов в
 
             {
                 //класс 'ReaderFromBinaryFiles' вычитывает данные из бинарного файла и возвращает коллекцию структурированных данных  
-                ReaderFromBinaryFiles readerFromBinaryFiles = new ReaderFromBinaryFiles(path_dat);
-                List<TradeRecord> Collektion = readerFromBinaryFiles.fromBinaryFile(path_dat);
+                //ReaderFromBinaryFiles readerFromBinaryFiles = new ReaderFromBinaryFiles(path_dat);
+                //List<TradeRecord> Collektion = readerFromBinaryFiles.fromBinaryFile(path_dat);
 
 
                 //класс 'ReadToCSV' получает коллекцию структурированных данных и генерирует из нее конечный файл *.CSV 
-                ReadToCSV readToCSV = new ReadToCSV(Collektion, path_CSV);//создаем экземпляр классауктур
-                readToCSV.toCSV(Collektion, path_CSV);//вызов метода класса 
+                //ReadToCSV readToCSV = new ReadToCSV(Collektion, path_CSV);//создаем экземпляр классауктур
+                //readToCSV.toCSV(Collektion, path_CSV);//вызов метода класса 
+
+
+                //класс 'ConvertigBinaryToCSV' вычитывает данные из бинарного файла и генерирует из нее конечный файл *.CSV   
+                ConvertingBinaryToCSV convertingBinaryToCSV = new ConvertingBinaryToCSV(path_dat, path_CSV);
+                List<TradeRecord> Collektion = convertingBinaryToCSV.fromBinaryFile(path_dat);
+                convertingBinaryToCSV.toCSV(Collektion, path_CSV);
 
             }
 
