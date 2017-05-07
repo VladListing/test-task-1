@@ -57,9 +57,10 @@ namespace test_task_2_Unit_Testing_2
             List<TradeRecord> trade = new List<TradeRecord>();
 
             for (int i = 0; i < lines; i++)
+                
             {
                 //заполняем  коллекцию  тестовыми данными
-                trade_.Add(new TradeRecord() { id = i, account = 7778, volume = 78888, comment = "Коллекция, строка Unit теста 2" });
+                 trade.Add(new TradeRecord() { id = i, account = 7778, volume = 78888, comment = "Коллекция, строка Unit теста 2" });
 
                 schet++;
             }
