@@ -39,7 +39,7 @@ namespace test_task_1_Testing
     {
         private const string path_CSV_ = @"D:\\Trade-test.csv";  //путь и имя будующего бинарного файла содержащего  структуры
         //static List<TradeRecord> collektion_ = Created_Collection();
-        static List<TradeRecord> trade_;
+        //static List<TradeRecord> trade_;
 
         [TestMethod]// драйвер
 
@@ -49,23 +49,23 @@ namespace test_task_1_Testing
         {
 
             int lines = 1000000;//на скольких строках коллекции протестировать?
-            int result1; //количество строк сгенерированых в тестовую коллекцию
-            int result2;//количество строк выгруженых в файл CSV
+            int result1_; //количество строк сгенерированых в тестовую коллекцию
+            int result2_;//количество строк выгруженых в файл CSV
             int schet = 0;
 
 
-            List<TradeRecord> trade = new List<TradeRecord>();
+            List<TradeRecord> trade_ = new List<TradeRecord>();
 
             for (int i = 0; i < lines; i++)
 
             {
                 //заполняем  коллекцию  тестовыми данными
-                trade.Add(new TradeRecord() { id = i, account = 7778, volume = 78888, comment = "Коллекция, строка Unit теста 2" });
+                trade_.Add(new TradeRecord() { id = i, account = 7778, volume = 78888, comment = "Коллекция, строка Unit теста 2" });
 
                 schet++;
             }
 
-            result1 = schet;
+            result1_ = schet;
             schet = 0;
 
 
@@ -73,10 +73,10 @@ namespace test_task_1_Testing
             //2.выполнить действие над той системой которую мы тестируем  
 
             ReadToCSV readToCSV = new ReadToCSV(trade_, path_CSV_);//создаем экземпляр класса
-            result2 = readToCSV.toCSV(trade_, path_CSV_);//вызов метода класса 
+            result2_ = readToCSV.toCSV(trade_, path_CSV_);//вызов метода класса 
 
 
-            Assert.AreEqual(result1, result2);//сравнение ожидаемого и полученого
+            Assert.AreEqual(result1_, result2_);//сравнение ожидаемого и полученого
 
 
         }
