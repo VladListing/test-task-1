@@ -12,12 +12,6 @@ namespace test_task_1
     public class ReadToCSV: IReadToCSV
     {
        
-        private string path_CSV;
-
-
-        //коструктоp пользовательский_1
-        
-
         //коструктоp пользовательский_1
         #region 'ReadToCSV'
         public ReadToCSV(List<TradeRecord> trade_, string patch_CSV_)
@@ -26,11 +20,7 @@ namespace test_task_1
             List<TradeRecord> trade = trade_;
         }
 
-        //public ReadToCSV(List<global::test_task_2_Unit_Testing_2.TradeRecord> collektion__, string patch_CSV_)
-        //{
-        //    string patch_CSV = patch_CSV_;
-        //    List<TradeRecord> trade = trade_;
-        //}
+        
 
         public void toCSV()
         {
@@ -39,11 +29,12 @@ namespace test_task_1
         #endregion
 
 
-        //метод 'toCSV' получает коллекцию структурированных данных  и генерирует из нее конечный файл *.CSV 
+        //метод 'toCSV' получает коллекцию структурированных данных  и генерирует из нее конечный файл *.CSV , возвращает во вне количество записаных в файл строк
         #region 'toCSV'
-        public void toCSV(List<TradeRecord> trade, string patch_CSV)
+        public int toCSV(List<TradeRecord> trade, string patch_CSV)
         {
             int i = 0;//переменая счетчика
+            int i_ = 0;//переменая счетчика
 
             //секция критичная в части исключений
             try
@@ -71,12 +62,14 @@ namespace test_task_1
 
                     Console.WriteLine();
                     Console.WriteLine("cконвертировано в файл:'D:\\Trade.csv'  : {0} строк ", i);
+                    i_ = i;
                     i = 0;
 
                 }
-
+                
             }
             #endregion
+           
 
             //сообщение о возникшем исключении
             #region исключения
@@ -87,6 +80,8 @@ namespace test_task_1
             Console.ReadLine();
             #endregion
 
+
+            return i_;//возвращаем во вне количество записаных в файл строк
         }
 
        

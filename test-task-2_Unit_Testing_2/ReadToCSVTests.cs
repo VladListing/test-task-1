@@ -11,24 +11,24 @@ namespace test_task_2_Unit_Testing_2
     //описание структуры 'TradeRecord' 
     #region 'TradeRecord'
 
-    [StructLayout(LayoutKind.Sequential, Pack = 1)]// размещение в неуправляемый код
-    public struct TradeRecord
-    {
-        public int id;
-        public int account;
-        public double volume;
-        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 64)] //маршалинг в неуправляемый код
-        public string comment;
+    //[StructLayout(LayoutKind.Sequential, Pack = 1)]// размещение в неуправляемый код
+    //public struct TradeRecord
+    //{
+    //    public int id;
+    //    public int account;
+    //    public double volume;
+    //    [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 64)] //маршалинг в неуправляемый код
+    //    public string comment;
 
-        //конструктор "TradeRecord"
-        public TradeRecord(int a, int b, double c, string d)
-        {
-            id = a;
-            account = b;
-            volume = c;
-            comment = d;
-        }
-    }
+    //    //конструктор "TradeRecord"
+    //    public TradeRecord(int a, int b, double c, string d)
+    //    {
+    //        id = a;
+    //        account = b;
+    //        volume = c;
+    //        comment = d;
+    //    }
+    //}
     #endregion
 
 
@@ -37,50 +37,54 @@ namespace test_task_2_Unit_Testing_2
     [TestClass]
     public class ReadToCSVTests
     {
-        string path_CSV = @"D:\\Trade-test.csv";  //путь и имя будующего бинарного файла содержащего  структуры
-
+        private const string path_CSV_ = @"D:\\Trade-test.csv";  //путь и имя будующего бинарного файла содержащего  структуры
+        //static List<TradeRecord> collektion_ = Created_Collection();
+        static List<TradeRecord> trade_;
 
         [TestMethod]// драйвер
 
-        //--------------------------------------------------------------------------------------------------------------------------------------
+        
 
-        public List<TradeRecord> Created_Collection()
+        public static void Created_Collection_and_UpLoad_to_CSV_files()
         {
 
-            int lines = 1000000;//на скольких строках протестировать?
+            int lines = 1000000;//на скольких строках коллекции протестировать?
+            int result1; //количество строк сгенерированых в тестовую коллекцию
+            int result2;//количество строк выгруженых в файл CSV
+            int schet = 0;
+
+
             List<TradeRecord> trade = new List<TradeRecord>();
 
             for (int i = 0; i < lines; i++)
             {
-                //trade[i] = new TradeRecord(0 + i, lines, 640 + i, "строка Unit тестового файла");
-                trade.Add(new TradeRecord() { id = i, account = 7778, volume = 78888, comment = "Коллекция строка Unit теста 2" });
+                //заполняем  коллекцию  тестовыми данными
+                trade_.Add(new TradeRecord() { id = i, account = 7778, volume = 78888, comment = "Коллекция, строка Unit теста 2" });
+
+                schet++;
             }
 
-            return trade;//возвращаем коллекцию c тестовыми данными
+            result1 = schet;
+            schet =0;
+
+
+
+            //2.выполнить действие над той системой которую мы тестируем  
+
+            ReadToCSV readToCSV = new ReadToCSV(trade_, path_CSV_);//создаем экземпляр класса
+            result2 =  readToCSV.toCSV(trade_, path_CSV_);//вызов метода класса 
+
+
+            Assert.AreEqual(result1, result2);//сравнение ожидаемого и полученого
+
+            
         }
-        //--------------------------------------------------------------------------------------------------------------------------------------
-
-
-        //-------------------------------------------------------------------------------------------------------------------------------------
-        public void Created_Collection_and_Upload_to_CSV()
-        {
-
-            List<TradeRecord> collektion__ = Created_Collection();
-            List<TradeRecord> collektion___ = (List<test_task_2_Unit_Testing_2.TradeRecord>)collektion__;
-
-           // класс 'ReadToCSV' получает коллекцию структурированных данных и генерирует из нее конечный файл *.CSV    
-           ReadToCSV readToCSV = new ReadToCSV(collektion___, path_CSV);//создаем экземпляр класса
-            readToCSV.toCSV(collektion___, path_CSV);//вызов метода класса 
-        }
-        //------------------------------------------------------------------------------------------------------------------------------------
+        //----------------------------------------------------------------------------
 
 
 
 
-
-
-        //2.выполнить действие над той системой которую мы тестируем
-
+       
 
 
     }
