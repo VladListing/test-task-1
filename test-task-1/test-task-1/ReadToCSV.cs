@@ -4,18 +4,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace test_task_1
 {
+
+
     public class ReadToCSV: IReadToCSV
     {
+       
+        private string path_CSV;
 
-        //коструктоp пользовательский
+
+        //коструктоp пользовательский_1
+        
+
+        //коструктоp пользовательский_1
         #region 'ReadToCSV'
         public ReadToCSV(List<TradeRecord> trade_, string patch_CSV_)
         {
             string patch_CSV = patch_CSV_;
             List<TradeRecord> trade = trade_;
         }
+
+        //public ReadToCSV(List<global::test_task_2_Unit_Testing_2.TradeRecord> collektion__, string patch_CSV_)
+        //{
+        //    string patch_CSV = patch_CSV_;
+        //    List<TradeRecord> trade = trade_;
+        //}
 
         public void toCSV()
         {
@@ -73,6 +88,8 @@ namespace test_task_1
             #endregion
 
         }
+
+       
         #endregion
 
     }

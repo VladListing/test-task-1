@@ -6,7 +6,8 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace test_task_1
+
+    namespace test_task_1
 {
     //описание структуры 'TradeRecord'
     #region 'TradeRecord'
@@ -22,7 +23,7 @@ namespace test_task_1
         public string comment;
 
 
-        //конструктор "TradeRecord"
+        //конструктор структуры "TradeRecord"
         public TradeRecord(int a, int b, double c, string d)
         {
             id = a;
@@ -34,7 +35,7 @@ namespace test_task_1
     }
     #endregion
 
-    class ReaderFromBinaryFiles: IReaderFromBinaryFiles
+    public class ReaderFromBinaryFiles : IReaderFromBinaryFiles
     {
 
         //коструктоp пользовательский
@@ -47,14 +48,14 @@ namespace test_task_1
 
         public void fromBinaryFile()
         {
-            
+
         }
         #endregion
 
 
         //метод 'fromBinaryFile' , вычитывает данные из бинарного потока и возвращает коллекцию структурированных данных  
         #region 'fromBinaryFile'
-        public List<TradeRecord> fromBinaryFile(string patch_dat)
+        public List<TradeRecord>  fromBinaryFile(string patch_dat, out int result )
         {
 
 
@@ -62,12 +63,12 @@ namespace test_task_1
             List<TradeRecord> trade = new List<TradeRecord>();
 
             int i = 0;//переменная счетчика
-
+            
             //инициация потока
             using (BinaryReader reader = new BinaryReader(File.Open(patch_dat, FileMode.Open), Encoding.ASCII))
             {
 
-                Console.WriteLine("выполняется чтение из бинарного файла: 'D:\\Trade.dat' ");
+                Console.WriteLine("выполняется чтение из бинарного файла:{0}", patch_dat );
                 reader.BaseStream.Position = 0;// устанавливаем "курсор" на 0-вую позицию в читаемом бинарном файле
 
 
@@ -91,11 +92,13 @@ namespace test_task_1
                 }
                 Console.WriteLine();
                 Console.WriteLine("вычитано строк: {0}", i);
+                result = i;
                 i = 0;
 
             }
 
-            return trade;//возвращаем коллекцию 
+            return trade;//возвращаем коллекцию c данными
+            
         }
         #endregion
 

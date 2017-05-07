@@ -7,8 +7,10 @@ using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
+using test_task_1;
 
-namespace test_task_1  //конвертация бинарных файлов в формат " .*CSV 
+//namespace test_task_2_Unit_test_2  //конвертация бинарных файлов в формат " .*CSV 
+namespace test_task_1 //конвертация бинарных файлов в формат " .*CSV 
 {
 
     class Program
