@@ -6,8 +6,9 @@ using test_task_1;
 using System.Collections;
 
 
-namespace test_task_1_Testing
+namespace test_tesk_1_Testing_2
 {
+
     //описание структуры 'TradeRecord' 
     #region 'TradeRecord'
 
@@ -34,21 +35,22 @@ namespace test_task_1_Testing
 
 
 
+
     [TestClass]
     public class ReadToCSV_Test
     {
+
         private const string path_CSV_ = @"D:\\Trade-test.csv";  //путь и имя будующего бинарного файла содержащего  структуры
         //static List<TradeRecord> collektion_ = Created_Collection();
         //static List<TradeRecord> trade_;
 
-        [TestMethod]// драйвер
 
 
 
-        public static void Created_Collection_and_UpLoad_to_CSV_files()
+        [TestMethod]
+        public void Created_Collection_and_UpLoad_to_CSV_files()
         {
-
-            int lines = 1000000;//на скольких строках коллекции протестировать?
+            int lines = 100;//на скольких строках коллекции протестировать?
             int result1_; //количество строк сгенерированых в тестовую коллекцию
             int result2_;//количество строк выгруженых в файл CSV
             int schet = 0;
@@ -64,7 +66,7 @@ namespace test_task_1_Testing
 
                 schet++;
             }
-
+            Console.WriteLine(" в коллекцию записанно :{0} строк ", schet);
             result1_ = schet;
             schet = 0;
 
@@ -80,9 +82,5 @@ namespace test_task_1_Testing
 
 
         }
-        //----------------------------------------------------------------------------
-
-
     }
 }
-
