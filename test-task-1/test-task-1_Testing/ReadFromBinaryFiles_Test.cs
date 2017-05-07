@@ -103,6 +103,7 @@ namespace test_task_1_Unit_Testing_1
             readerFromBinaryFiles.fromBinaryFile(path, out result2);
 
             Assert.AreEqual(result1, result2);//сравнение ожидаемого и полученого
+              
         }
 
 

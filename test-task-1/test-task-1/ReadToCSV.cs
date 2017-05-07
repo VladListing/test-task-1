@@ -14,19 +14,44 @@ namespace test_task_1
        
         //коструктоp пользовательский_1
         #region 'ReadToCSV'
-        public ReadToCSV(List<TradeRecord> trade_, string patch_CSV_)
+        public  ReadToCSV(List<TradeRecord> trade_, string patch_CSV_)
         {
             string patch_CSV = patch_CSV_;
             List<TradeRecord> trade = trade_;
         }
 
+        //коструктоp пользовательский_2
         
+        public ReadToCSV( string patch_CSV_)
+        {
+            string patch_CSV = patch_CSV_;
+            
+        }
 
         public void toCSV()
         {
             
         }
         #endregion
+
+        //public int s()
+        //{
+
+        //    try
+        //    {
+        //        int a = 1; int b = 1; int c = a + b; 
+        //    }
+
+        //    //сообщение о возникшем исключении
+        //    #region исключения
+        //    catch (Exception m)
+        //    {
+        //        Console.WriteLine(m.Message);
+        //    }
+        //    Console.ReadLine();
+        //    #endregion
+        //    return c;
+        //}
 
 
         //метод 'toCSV' получает коллекцию структурированных данных  и генерирует из нее конечный файл *.CSV , возвращает во вне количество записаных в файл строк
@@ -37,9 +62,9 @@ namespace test_task_1
             int i_ = 0;//переменая счетчика
 
             //секция критичная в части исключений
-            try
-            #region
-            {
+            //try
+            //#region
+            //{
 
                 using (System.IO.StreamWriter file = new System.IO.StreamWriter(patch_CSV))
                 {
@@ -67,25 +92,25 @@ namespace test_task_1
 
                 }
                 
-            }
+            //}
             #endregion
            
 
             //сообщение о возникшем исключении
-            #region исключения
-            catch (Exception m)
-            {
-                Console.WriteLine(m.Message);
-            }
-            Console.ReadLine();
-            #endregion
+            //#region исключения
+            //catch (Exception m)
+            //{
+            //    Console.WriteLine(m.Message);
+            //}
+            //Console.ReadLine();
+            //#endregion
 
 
             return i_;//возвращаем во вне количество записаных в файл строк
         }
 
        
-        #endregion
+        //#endregion
 
     }
 }

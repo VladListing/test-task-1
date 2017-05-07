@@ -6,7 +6,7 @@ using test_task_1;
 using System.Collections;
 
 
-namespace test_tesk_1_Testing_2
+namespace test_tesk_1_Testing
 {
 
     //описание структуры 'TradeRecord' 
@@ -41,32 +41,29 @@ namespace test_tesk_1_Testing_2
     {
 
         private const string path_CSV_ = @"D:\\Trade-test.csv";  //путь и имя будующего бинарного файла содержащего  структуры
-        //static List<TradeRecord> collektion_ = Created_Collection();
-        //static List<TradeRecord> trade_;
+        
 
-
-
-
-        [TestMethod]
+        [TestMethod(), Timeout(20000)]
         public void Created_Collection_and_UpLoad_to_CSV_files()
         {
-            int lines = 100;//на скольких строках коллекции протестировать?
+            int lines = 1000000;//на скольких строках коллекции протестировать?
             int result1_; //количество строк сгенерированых в тестовую коллекцию
-            int result2_;//количество строк выгруженых в файл CSV
+            int result2_; //количество строк сгенерированых в тестовую коллекцию
             int schet = 0;
 
 
             List<TradeRecord> trade_ = new List<TradeRecord>();
 
+            
             for (int i = 0; i < lines; i++)
-
             {
                 //заполняем  коллекцию  тестовыми данными
                 trade_.Add(new TradeRecord() { id = i, account = 7778, volume = 78888, comment = "Коллекция, строка Unit теста 2" });
 
                 schet++;
             }
-            Console.WriteLine(" в коллекцию записанно :{0} строк ", schet);
+
+
             result1_ = schet;
             schet = 0;
 
@@ -74,12 +71,12 @@ namespace test_tesk_1_Testing_2
 
             //2.выполнить действие над той системой которую мы тестируем  
 
-            ReadToCSV readToCSV = new ReadToCSV(trade_, path_CSV_);//создаем экземпляр класса
-            result2_ = readToCSV.toCSV(trade_, path_CSV_);//вызов метода класса 
+            ReadToCSV readToCSV = new ReadToCSV( path_CSV_);//создаем экземпляр класса
 
+            result2_ = readToCSV.toCSV(trade_, path_CSV_);//вызов метода класса
 
-            Assert.AreEqual(result1_, result2_);//сравнение ожидаемого и полученого
-
+            Assert.AreEqual( result1_ , result2_ );//сравнение ожидаемого и полученого
+           
 
         }
     }
