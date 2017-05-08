@@ -17,7 +17,7 @@ namespace test_task_1 //конвертация бинарных файлов в 
     {
         public const string path_dat = @"D:\\Trade.dat";  //путь и имя бинарного файла со структурами
         public const string path_CSV = @"D:\\Trade.CSV";  //путь и имя  создаваемого файла с разделителями, типа *.CSV
-
+        
         static void Main(string[] args) // тестовое задание 1:
         {
 
@@ -37,7 +37,8 @@ namespace test_task_1 //конвертация бинарных файлов в 
 
                 //класс 'ConvertigBinaryToCSV' вычитывает данные из бинарного файла и генерирует из нее конечный файл *.CSV   
                 ConvertingBinaryToCSV convertingBinaryToCSV = new ConvertingBinaryToCSV(path_dat, path_CSV);
-                List<TradeRecord> Collektion = convertingBinaryToCSV.fromBinaryFile(path_dat);
+                int result;
+                List<TradeRecord> Collektion = convertingBinaryToCSV.fromBinaryFile(path_dat, out result);
                 convertingBinaryToCSV.toCSV(Collektion, path_CSV);
 
             }

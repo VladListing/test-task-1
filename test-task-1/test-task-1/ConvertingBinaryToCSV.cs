@@ -6,6 +6,14 @@ using System.Text;
 
 namespace test_task_1
 {
+
+       //здесь в рамках одного класса:'ConvertingBinaryToCSV' 
+      //реализуем заново с нуля оба метода:
+     // - 'fromBinaryFile'
+    //  - 'toCSV'
+
+
+
     public class ConvertingBinaryToCSV: IConvertingBinaryToCSV
     {
         
@@ -23,13 +31,18 @@ namespace test_task_1
         {
             
         }
+
+        public void toCSV()
+        {
+            
+        }
         #endregion
 
 
 
         //метод 'fromBinaryFile' , вычитывает данные из бинарного потока и возвращает коллекцию структурированных данных  
         #region 'fromBinaryFile'
-        public List<TradeRecord> fromBinaryFile(string patch_dat)
+        public List<TradeRecord> fromBinaryFile(string patch_dat, out int result)
         {
 
 
@@ -42,7 +55,7 @@ namespace test_task_1
             using (BinaryReader reader = new BinaryReader(File.Open(patch_dat, FileMode.Open), Encoding.ASCII))
             {
 
-                Console.WriteLine("выполняется чтение из бинарного файла: 'D:\\Trade.dat' ");
+                Console.WriteLine("выполняется чтение из бинарного файла:{0}", patch_dat);
                 reader.BaseStream.Position = 0;// устанавливаем "курсор" на 0-вую позицию в читаемом бинарном файле
 
 
@@ -66,6 +79,8 @@ namespace test_task_1
                 }
                 Console.WriteLine();
                 Console.WriteLine("вычитано строк: {0}", i);
+
+                result = i;
                 i = 0;
 
             }
@@ -73,10 +88,7 @@ namespace test_task_1
             return trade;//возвращаем коллекцию 
         }
 
-        public void toCSV()
-        {
-            throw new NotImplementedException();
-        }
+        
         #endregion
 
 
@@ -84,14 +96,12 @@ namespace test_task_1
 
         //метод 'toCSV' получает коллекцию структурированных данных  и генерирует из нее конечный файл *.CSV 
         #region 'toCSV'
-        public void toCSV(List<TradeRecord> trade, string patch_CSV)
+        public int toCSV(List<TradeRecord> trade, string patch_CSV)
         {
             int i = 0;//переменая счетчика
-
+            int result = 0;//счетчик количества строк выгруженных в файл *.CSV
             //секция критичная в части исключений
-            try
-            #region
-            {
+           
 
                 using (System.IO.StreamWriter file = new System.IO.StreamWriter(patch_CSV))
                 {
@@ -113,25 +123,20 @@ namespace test_task_1
                     }
 
                     Console.WriteLine();
-                    Console.WriteLine("cконвертировано в файл:'D:\\Trade.csv'  : {0} строк ", i);
-                    i = 0;
+                    Console.WriteLine(" в файл:   {0}      cконвертировано :   {1} строк ", patch_CSV, i);
+
+                result = i;
+                i = 0;
 
                 }
-
-            }
-            #endregion
-
-            //сообщение о возникшем исключении
-            #region исключения
-            catch (Exception m)
-            {
-                Console.WriteLine(m.Message);
-            }
-            Console.ReadLine();
-            #endregion
-
+            return result;//возвращаем количество строк выгруженных 
         }
         #endregion
+
+            
+          
+    
+        
 
     }
 }
