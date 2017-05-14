@@ -58,7 +58,6 @@ using System.Threading.Tasks;
         public List<TradeRecord>  fromBinaryFile(string patch_dat, out int result )
         {
 
-
             //создаем экземпляр коллекции , содержащую набор элементов типа структуры TradeRecod
             List<TradeRecord> trade = new List<TradeRecord>();
 
@@ -69,6 +68,7 @@ using System.Threading.Tasks;
             {
 
                 Console.WriteLine("выполняется чтение из бинарного файла:{0}", patch_dat );
+
                 reader.BaseStream.Position = 0;// устанавливаем "курсор" на 0-вую позицию в читаемом бинарном файле
 
 
@@ -81,7 +81,7 @@ using System.Threading.Tasks;
                     string comment_ = reader.ReadString();
 
 
-                    //вывод в консоль вычитаных полей (значительно увеличивает время обработки)
+                    //вывод в консоль вычитаных полей (для отладки)
                     //Console.WriteLine("id: {0}      счет: {1}     уровень: {2}       комментарий: {3} ", id, account, volume, comment);
 
                     // инециализируем поля структуры находящейся в коллекции

@@ -7,7 +7,6 @@ namespace test_task_1
 {
     public interface IReadToCSV
     {
-
         void toCSV();
     }
 }

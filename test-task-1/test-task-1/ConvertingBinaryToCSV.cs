@@ -7,11 +7,10 @@ using System.Text;
 namespace test_task_1
 {
 
-       //здесь в рамках одного класса:'ConvertingBinaryToCSV' 
-      //реализуем заново с нуля оба метода:
-     // - 'fromBinaryFile'
+       //в рамках одного класса:'ConvertingBinaryToCSV' 
+      //реализуем заново оба метода:
+     // - 'fromBinaryFile' 
     //  - 'toCSV'
-
 
 
     public class ConvertingBinaryToCSV: IConvertingBinaryToCSV
@@ -131,13 +130,7 @@ namespace test_task_1
                 }
             return result;//возвращаем количество строк выгруженных 
         }
-        #endregion
-
-            
-          
-    
-        
-
+       #endregion
     }
 }
         

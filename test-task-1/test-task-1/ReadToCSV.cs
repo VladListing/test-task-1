@@ -34,27 +34,8 @@ namespace test_task_1
         }
         #endregion
 
-        //public int s()
-        //{
-
-        //    try
-        //    {
-        //        int a = 1; int b = 1; int c = a + b; 
-        //    }
-
-        //    //сообщение о возникшем исключении
-        //    #region исключения
-        //    catch (Exception m)
-        //    {
-        //        Console.WriteLine(m.Message);
-        //    }
-        //    Console.ReadLine();
-        //    #endregion
-        //    return c;
-        //}
-
-
-        //метод 'toCSV' получает коллекцию структурированных данных  и генерирует из нее конечный файл *.CSV , возвращает во вне количество записаных в файл строк
+        
+        //метод 'toCSV' получает коллекцию структурированных данных  и генерирует из нее конечный файл *.CSV , возвращает количество записаных в файл строк
         #region 'toCSV'
         public int toCSV(List<TradeRecord> trade, string patch_CSV)
         {
@@ -62,7 +43,6 @@ namespace test_task_1
             int i_ = 0;//переменая счетчика
 
             
-
                 using (System.IO.StreamWriter file = new System.IO.StreamWriter(patch_CSV) ) 
                 {
 
@@ -88,19 +68,10 @@ namespace test_task_1
                     i = 0;
 
                 }
-                
-            
-            #endregion
-           
+                      
+           #endregion
 
-            
-
-
-            return i_;//возвращаем во вне количество записаных в файл строк
+           return i_;//возвращаем во вне количество записаных в файл строк
         }
-
-       
-       
-
     }
 }

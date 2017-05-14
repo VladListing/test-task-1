@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using test_task_1;
 
-//namespace test_task_2_Unit_test_2  //конвертация бинарных файлов в формат " .*CSV 
+
 namespace test_task_1 //конвертация бинарных файлов в формат " .*CSV 
 {
 
@@ -21,7 +21,7 @@ namespace test_task_1 //конвертация бинарных файлов в 
         static void Main(string[] args) // тестовое задание 1:
         {
 
-            //секция критичная в части исключений
+            
             try
 
             {
